@@ -20,7 +20,7 @@
 #if defined USE_I2C_DISPLAY
     static const int I2CDisplayAddress = 0x3C;
     static const int I2CDisplayWidth = 128;
-    static const int I2CDisplayHeight = 32;
+    static const int I2CDisplayHeight = 64;
     static const int I2CResetPin = 16;  						// Board WiFi LoRa 32 (V2) https://heltec.org/project/wifi-lora-32/
     static const gpio_num_t GPIO_VEXT 		= GPIO_NUM_21;		// Board WiFi LoRa 32 (V2) https://heltec.org/project/wifi-lora-32/
 
