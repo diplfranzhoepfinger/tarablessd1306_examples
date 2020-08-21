@@ -1,6 +1,6 @@
 [submodule "HelloWorld/components/tarablessd1306"]
 	path = HelloWorld/components/tarablessd1306
-	url = https://github.com/TaraHoleInIt/tarablessd1306
+	url = https://github.com/diplfranzhoepfinger/tarablessd1306.git
 [submodule "Fonts/components/tarablessd1306"]
 	path = Fonts/components/tarablessd1306
 	url = https://github.com/TaraHoleInIt/tarablessd1306
