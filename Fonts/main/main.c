@@ -61,6 +61,8 @@ const struct SSD1306_FontDef* FontList[ ] = {
     &Font_liberation_mono_9x15,
     &Font_liberation_mono_13x21,
     &Font_liberation_mono_17x30,
+	&Font_Tarable7Seg_16x32,
+	&Font_Tarable7Seg_32x64,
     NULL
 };
 
