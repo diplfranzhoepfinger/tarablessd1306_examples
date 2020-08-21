@@ -13,19 +13,21 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
+#include "driver/gpio.h"
 #include "ssd1306.h"
 #include "ssd1306_draw.h"
 #include "ssd1306_font.h"
 #include "ssd1306_default_if.h"
 
 #define USE_I2C_DISPLAY
-#define USE_SPI_DISPLAY
+//#define USE_SPI_DISPLAY
 
 #if defined USE_I2C_DISPLAY
     static const int I2CDisplayAddress = 0x3C;
     static const int I2CDisplayWidth = 128;
     static const int I2CDisplayHeight = 64;
-    static const int I2CResetPin = -1;
+    static const int I2CResetPin = 16;  						// Board WiFi LoRa 32 (V2) https://heltec.org/project/wifi-lora-32/
+    static const gpio_num_t GPIO_VEXT 		= GPIO_NUM_21;		// Board WiFi LoRa 32 (V2) https://heltec.org/project/wifi-lora-32/
 
     struct SSD1306_Device I2CDisplay;
 #endif
@@ -71,6 +73,23 @@ void app_main( void ) {
 
     printf( "Ready...\n" );
 
+
+    /* Configure the IOMUX register for pad BLINK_GPIO (some pads are
+       muxed to GPIO on reset already, but some default to other
+       functions and need to be switched to GPIO. Consult the
+       Technical Reference for a list of pads and their default
+       functions.)
+    */
+
+    gpio_pad_select_gpio(GPIO_VEXT);
+    gpio_set_direction(GPIO_VEXT, GPIO_MODE_OUTPUT);
+
+
+
+    gpio_set_level(GPIO_VEXT, 0); //LOW means Vext ON
+
+
+
     if ( DefaultBusInit( ) == true ) {
         printf( "BUS Init lookin good...\n" );
         printf( "Drawing.\n" );
@@ -83,5 +102,7 @@ void app_main( void ) {
         }
 
         printf( "Done!\n" );
+
+        gpio_set_level(GPIO_VEXT, 1); //HIGH means Vext OFF
     }
 }
