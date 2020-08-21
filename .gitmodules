@@ -3,7 +3,7 @@
 	url = https://github.com/diplfranzhoepfinger/tarablessd1306.git
 [submodule "Fonts/components/tarablessd1306"]
 	path = Fonts/components/tarablessd1306
-	url = https://github.com/TaraHoleInIt/tarablessd1306
+	url = https://github.com/diplfranzhoepfinger/tarablessd1306.git
 [submodule "snow/components/tarablessd1306"]
 	path = snow/components/tarablessd1306
-	url = https://github.com/TaraHoleInIt/tarablessd1306
+	url = https://github.com/diplfranzhoepfinger/tarablessd1306.git
